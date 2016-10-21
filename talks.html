@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>The Third Workshop on the LLVM Compiler Infrastructure in HPC</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>The Third Workshop on the LLVM Compiler Infrastructure in HPC</h1>
+        <p>Workshop held in conjunction with SC16 - Monday, November 14, 2016 - Salt Lake City, Utah, USA</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/LLVM-HPC3-Workshop" class="button fork"><strong>View On GitHub</strong></a>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h2>
+<a id="invited" class="anchor" href="#invited" aria-hidden="true"><span class="octicon octicon-link"></span></a>Invited Talks</h2>
+
+<a class="anchor" name="miles" aria-hidden="true"></a>
+<h3>Keynote: <i>TBA</i></h3>
+<h4>Douglas Miles</h4>
+
+<!-- <p></p> -->
+
+<a class="anchor" name="hoefler" aria-hidden="true"></a>
+<h3>Polly-ACC: Transparent compilation to heterogeneous hardware</h3>
+<h4>Torsten Hoefler</h4>
+
+<p>Programming today's increasingly complex heterogeneous hardware is difficult, as it commonly requires the use of data-parallel languages, pragma annotations, specialized libraries, or DSL compilers. Adding explicit accelerator support into a larger code base is not only costly, but also introduces additional complexity that hinders long-term maintenance. We propose a new heterogeneous compiler that brings us closer to the dream of automatic accelerator mapping. Starting from a sequential compiler IR, we automatically generate a hybrid executable that - in combination with a new data management system - transparently offloads suitable code regions. Our approach is almost regression free for a wide range of applications while improving a range of compute kernels as well as two full SPEC CPU applications. We expect our work to reduce the initial cost of accelerator usage and to free developer time to investigate algorithmic changes.</p>
+
+<a class="anchor" name="walton" aria-hidden="true"></a>
+<h3>LLVM at ARM</h3>
+<h4>Travis Walton</h4>
+
+<p>An overview of the ways that LLVM is used in ARM's products. Covering:</p>
+
+<ul>
+<li>An overview of SVE (Scalable Vector Extensions) and our proposed additions to LLVM.</li>
+<li>ARM Compiler 6 - The LLVM based compiler available for embedded development as part of ARM Developer Studio.</li>
+<li>Compiler Insight and the ARM Code Advisor.</li>
+<li>Our work with Fortran and OpenMP under the Mont-Blanc 3 project</li>
+</ul>
+
+<a class="anchor" name="denisenko" aria-hidden="true"></a>
+<h3>Targeting FPGAs with an LLVM compiler</h3>
+<h4>Dmitry Denisenko</h4>
+
+<p>Hardware high-level synthesis targeting Field Programmable Gate Arrays (FPGAs) with an LLVM compiler presents many unique challenges. In this talk we will give a brief introduction to FPGAs and how their compute model differs from the classical von-Neumann architecture of CPUs and GPUs. Then we will describe how LLVM IR instructions are mapped to hardware and scheduled to clock cycles, give examples of some FPGA-specific compiler optimizations, and present some of the challenges in adapting the LLVM compiler to our needs.</p>
+
+<a class="anchor" name="zheng" aria-hidden="true"></a>
+<h3>Optimizing OpenCL Applications for FPGAs</h3>
+<h4>Hongbin Zheng</h4>
+
+<p>There is increasing interest in using FPGA-based accelerators in high-performance computing as FGPA-based accelerators have  shown better performance and energy-efficiency over other general purpose processors like CPUs and GPGPUs, without scarifying the flexibility.</p>
+
+<p>However, users with HPC background still face difficulty when they try to program FPGAs as compute devices in HPC, even with the help of the existing High-level Synthesis solution.</p>
+
+<p>In this talk, I will discuss how Xilinx, a leading FPGA company, plans to reduce the difficulty of programming FPGAs for HPC users with its OpenCL compiler and enable FPGA programming for the masses.</p>
+
+<a class="anchor" name="watanabe" aria-hidden="true"></a>
+<h3>UPC to C Translator</h3>
+<h4>Steven Watanabe</h4>
+
+<p>Unified Parallel C (UPC) is an extension of the C programming language designed for high-performance computing on large-scale parallel machines, including those with a common global address space (SMP and NUMA) and those with distributed memory (e.g. clusters).  The UPC language expresses parallelism by extending ISO C 99 with constructs to explicitly specify a parallel execution model, shared address space, synchronization primitives and memory consistency model, memory management, and explicit communication primitives.</p>
+
+<p>The Clang UPC2C tool is a Clang based translator which converts the source code written in UPC language into the C language source.  UPC2C leverages the previously developed Clang UPC front end and uses Clang's TreeTransform capability to convert UPC specific constructs into plain C, targeting the Berkeley UPC runtime.  While this transformation works well, a few challenges were encountered during the course of development.</p>
+
+        <h2>
+<a id="contributed" class="anchor" href="#contributed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributed Papers</h2>
+
+<a class="anchor" name="antao" aria-hidden="true"></a>
+<h3>Offloading Support for OpenMP in Clang and LLVM</h3>
+<h4>Samuel Antao, Alexey Bataev, Arpith Jacob, Alexandre Eichenberger, Georgios Rokos, Matt Martineau, Tian Jin, Guray Ozen, Zehra Sura, Tong Chen, Hyojin Sung, Carlo Bertolli and Kevin O'Brien</h4>
+
+<p>OpenMP 4.5 allows performance portability by enabling users to write a single application code and run it on multiple types of accelerators. Our goal is to deliver a high- performance implementation of OpenMP into the Clang/LLVM project. This paper describes our initial work to fully support code generation for OpenMP device offloading constructs. We describe a new driver implementation to handle compilation for multiple host and device types, which generalizes the current Clang CUDA implementation and supports OpenMP. It can also be extended to any offloading based language including OpenCL and OpenACC. We describe an implementation of the OpenMP offloading constructs in the runtime library, giving details on two critical aspects. First, how data mapping is implemented. Second, how different device code sections in the binaries are handled to enable application execution on different devices without recompilation. We report initial performance on a prototype that extends current LLVM trunk repositories with all our proposed patches plus future ones, showing near-CUDA performance of our solution.</p>
+
+<a class="anchor" name="khaldi" aria-hidden="true"></a>
+<h3>Towards Automatic HBM Allocation using LLVM: A Case Study with Knights Landing</h3>
+<h4>Dounia Khaldi and Barbara Chapman</h4>
+
+<p>In this paper, we introduce a new LLVM analysis, called Bandwidth-Critical Data Analysis (BCDA), to decide when it is beneficial to allocate data in High-Bandwidth Memory (HBM) and then transform allocation calls into specific HBM allocation calls, for increased performance in parallel systems.  High-Bandwidth Memory (HBM) is a new memory technology that features stacked 3D chips on processor dies.</p>
+
+<p>The well-known SSA-based compilation infrastructure for sequential and parallel languages LLVM will be used to detect frequently used data and patterns of memory accesses in order to decide on which level to allocate the data: HBM or DDR.  BCDA core analysis counts the number of data uses and detects irregular and simultaneous accesses, generating a priority value for every variable. Using this priority value information, LLVM will generate <tt>memkind_alloc</tt> function calls, to transform <tt>malloc</tt>s to HBM allocations if HBM is present and a sufficient size of HBM is available.</p>
+
+<p>As a use case for validating our approach, we show how the Conjugate Gradient (CG) benchmark from the NAS Parallel suite can be optimized for the use of MCDRAM, as the HBM on the Knights Landing Xeon Phi processors is called. We implement BCDA in the LLVM compiler and apply it on CG to detect when it is beneficial to allocate data in the HBM. Then, we allocate the data in the MCDRAM using <i>hbwmalloc</i> library calls. Using the priority generated by BCDA, we achieved a 2.29x performance improvement using the LLVM compiler and 2.33x using Intel's compiler compared to the DDR version of CG.</p>
+
+<a class="anchor" name="tian" aria-hidden="true"></a>
+<h3>LLVM Framework and IR Extensions for Parallelization, SIMD Vectorization and Offloading</h3>
+<h4>Xinmin Tian, Hideki Saito, Ernesto Su, Abhinav Gaba, Matt Masten, Eric Garcia and Ayal Zaks</h4>
+
+<p>LLVM has become an integral part of the software-development ecosystem for developing advanced compilers, high-performance computing software and tools. This paper presents a small set of LLVM IR extensions for explicitly parallel, vector, and offloading program constructs. The proposed LLVM IR extensions enable the lowering and transformation in the LLVM middle-end for the OpenMP C/C++ and Fortran API, and any other explicitly parallel/simd constructs in high-level source languages. This paper discusses the rationale of the LLVM IR extensions to support OpenMP constructs and clauses, and presents the LLVM intrinsic functions, the framework for parallelization, vectorization, and offloading, and the sandwich scheme to model the OpenMP parallel, simd, offloading and data-attribute semantics under the SSA form. Examples are given to show our implementation in the LLVM middle-end passes, which paves the way to achieve a better interaction with scalar optimizations, vectorization, and loop optimizations, and thus resulting in higher performance.</p>
+
+<a class="anchor" name="moss" aria-hidden="true"></a>
+<h3>The ARES High-level Intermediate Representation</h3>
+<h4>Nick Moss, Kei Davis and Pat McCormick</h4>
+
+<p>The LLVM intermediate representation (IR) lacks semantic constructs for denoting common high-performance operations such as parallel and concurrent execution, com- munication, and synchronization. Currently, representing such semantics in LLVM requires either extending the intermediate form (a significant undertaking) or the use of ad hoc indirect means such as encoding them as intrinsics and/or the use of metadata constructs. In this paper we discuss a work in progress to explore the design and implementation of a new compilation stage and associated high-level intermediate form that is situated between the abstract syntax tree and LLVM's IR. This high-level representation is a superset of LLVM IR and supports the direct representation of these common parallel computing constructs, together with the infrastructure for supporting analysis and transformation passes on this representation.</p>
+
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
