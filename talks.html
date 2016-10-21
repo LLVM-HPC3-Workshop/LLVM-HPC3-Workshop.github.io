@@ -36,10 +36,10 @@
 <a id="invited" class="anchor" href="#invited" aria-hidden="true"><span class="octicon octicon-link"></span></a>Invited Talks</h2>
 
 <a class="anchor" name="miles" aria-hidden="true"></a>
-<h3>Keynote: <i>TBA</i></h3>
+<h3>Keynote: Integrating LLVM with the PGI Fortran, C and C++ compilers</h3>
 <h4>Douglas Miles</h4>
 
-<!-- <p></p> -->
+<p>PGI Fortran, C and C++ compilers have been widely-used on Linux/x86 HPC systems and clusters for nearly 20 years, and more recently on heterogeneous GPU-enabled platforms and OpenPOWER CPUs. Over the past 3 years, these compilers have been re-designed to integrate LLVM for low-level optimization and code generation on both GPUs and multicore CPUs, retaining the PGI optimizer for high-level optimizations, vectorization, parallelization and GPU offloading. This work has evolved to include a joint project with the US DOE to create an open source Fortran language front-end designed for integration with LLVM. This talk will cover the current status and capabilities of the PGI+LLVM compilers, our experiences integrating LLVM into a production HPC compiler infrastructure, and plans and priorities for future development.</p>
 
 <a class="anchor" name="hoefler" aria-hidden="true"></a>
 <h3>Polly-ACC: Transparent compilation to heterogeneous hardware</h3>
@@ -70,7 +70,7 @@
 <h3>Optimizing OpenCL Applications for FPGAs</h3>
 <h4>Hongbin Zheng</h4>
 
-<p>There is increasing interest in using FPGA-based accelerators in high-performance computing as FGPA-based accelerators have  shown better performance and energy-efficiency over other general purpose processors like CPUs and GPGPUs, without scarifying the flexibility.</p>
+<p>There is increasing interest in using FPGA-based accelerators in high-performance computing as FGPA-based accelerators have shown better performance and energy-efficiency over other general purpose processors like CPUs and GPGPUs, without scarifying the flexibility.</p>
 
 <p>However, users with HPC background still face difficulty when they try to program FPGAs as compute devices in HPC, even with the help of the existing High-level Synthesis solution.</p>
 
@@ -80,9 +80,9 @@
 <h3>UPC to C Translator</h3>
 <h4>Steven Watanabe</h4>
 
-<p>Unified Parallel C (UPC) is an extension of the C programming language designed for high-performance computing on large-scale parallel machines, including those with a common global address space (SMP and NUMA) and those with distributed memory (e.g. clusters).  The UPC language expresses parallelism by extending ISO C 99 with constructs to explicitly specify a parallel execution model, shared address space, synchronization primitives and memory consistency model, memory management, and explicit communication primitives.</p>
+<p>Unified Parallel C (UPC) is an extension of the C programming language designed for high-performance computing on large-scale parallel machines, including those with a common global address space (SMP and NUMA) and those with distributed memory (e.g. clusters). The UPC language expresses parallelism by extending ISO C 99 with constructs to explicitly specify a parallel execution model, shared address space, synchronization primitives and memory consistency model, memory management, and explicit communication primitives.</p>
 
-<p>The Clang UPC2C tool is a Clang based translator which converts the source code written in UPC language into the C language source.  UPC2C leverages the previously developed Clang UPC front end and uses Clang's TreeTransform capability to convert UPC specific constructs into plain C, targeting the Berkeley UPC runtime.  While this transformation works well, a few challenges were encountered during the course of development.</p>
+<p>The Clang UPC2C tool is a Clang based translator which converts the source code written in UPC language into the C language source. UPC2C leverages the previously developed Clang UPC front end and uses Clang's TreeTransform capability to convert UPC specific constructs into plain C, targeting the Berkeley UPC runtime. While this transformation works well, a few challenges were encountered during the course of development.</p>
 
         <h2>
 <a id="contributed" class="anchor" href="#contributed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributed Papers</h2>
@@ -97,9 +97,9 @@
 <h3>Towards Automatic HBM Allocation using LLVM: A Case Study with Knights Landing</h3>
 <h4>Dounia Khaldi and Barbara Chapman</h4>
 
-<p>In this paper, we introduce a new LLVM analysis, called Bandwidth-Critical Data Analysis (BCDA), to decide when it is beneficial to allocate data in High-Bandwidth Memory (HBM) and then transform allocation calls into specific HBM allocation calls, for increased performance in parallel systems.  High-Bandwidth Memory (HBM) is a new memory technology that features stacked 3D chips on processor dies.</p>
+<p>In this paper, we introduce a new LLVM analysis, called Bandwidth-Critical Data Analysis (BCDA), to decide when it is beneficial to allocate data in High-Bandwidth Memory (HBM) and then transform allocation calls into specific HBM allocation calls, for increased performance in parallel systems. High-Bandwidth Memory (HBM) is a new memory technology that features stacked 3D chips on processor dies.</p>
 
-<p>The well-known SSA-based compilation infrastructure for sequential and parallel languages LLVM will be used to detect frequently used data and patterns of memory accesses in order to decide on which level to allocate the data: HBM or DDR.  BCDA core analysis counts the number of data uses and detects irregular and simultaneous accesses, generating a priority value for every variable. Using this priority value information, LLVM will generate <tt>memkind_alloc</tt> function calls, to transform <tt>malloc</tt>s to HBM allocations if HBM is present and a sufficient size of HBM is available.</p>
+<p>The well-known SSA-based compilation infrastructure for sequential and parallel languages LLVM will be used to detect frequently used data and patterns of memory accesses in order to decide on which level to allocate the data: HBM or DDR. BCDA core analysis counts the number of data uses and detects irregular and simultaneous accesses, generating a priority value for every variable. Using this priority value information, LLVM will generate <tt>memkind_alloc</tt> function calls, to transform <tt>malloc</tt>s to HBM allocations if HBM is present and a sufficient size of HBM is available.</p>
 
 <p>As a use case for validating our approach, we show how the Conjugate Gradient (CG) benchmark from the NAS Parallel suite can be optimized for the use of MCDRAM, as the HBM on the Knights Landing Xeon Phi processors is called. We implement BCDA in the LLVM compiler and apply it on CG to detect when it is beneficial to allocate data in the HBM. Then, we allocate the data in the MCDRAM using <i>hbwmalloc</i> library calls. Using the priority generated by BCDA, we achieved a 2.29x performance improvement using the LLVM compiler and 2.33x using Intel's compiler compared to the DDR version of CG.</p>
 
